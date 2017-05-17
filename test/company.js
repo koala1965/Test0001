@@ -1,4 +1,5 @@
 
+
 process.env.NODE_ENV = 'test';
 
 let chai = require('chai');
@@ -50,7 +51,7 @@ describe('Компания:', () => {
                   }
                }
             };
-  
+
             chai
                .request(baseUrl)
                .get(params)
@@ -91,13 +92,13 @@ describe('Компания:', () => {
                .end((err, res) => {
                   res.should.have.status(200);
                   company = JSON.parse(res.text);
-      
+
                   company.should.be.eql(expectedError);
 
                   done();
             });
          });
-      
+
          // 03
          it('Если параметр отсутствует, то должно быть сообщение "Invalid params"', function (done) {
             params = '';
